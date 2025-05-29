@@ -242,3 +242,31 @@ async function deleteData(id) {
 }
 
 export { getData, postData, putData, patchData, deleteData }
+
+// Примеры вызова функций
+// Получение данных
+getData('/posts/1').then(result => console.log('Get result:', result));
+
+// Создание нового поста
+const newPost = {
+  title: 'Новый пост',
+  body: 'Содержание нового поста',
+  userId: 1
+};
+postData('/posts', newPost).then(result => console.log('Post result:', result));
+
+// Обновление поста
+const updateData = {
+  title: 'Обновленный пост',
+  body: 'Обновленное содержание'
+};
+putData(1, updateData).then(result => console.log('Put result:', result));
+
+// Частичное обновление поста
+const patchUpdate = {
+  title: 'Частично обновленный пост'
+};
+patchData(1, patchUpdate).then(result => console.log('Patch result:', result));
+
+// Удаление поста
+deleteData(1).then(result => console.log('Delete result:', result));
